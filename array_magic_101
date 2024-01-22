@@ -2,12 +2,14 @@
 arr = [3,5,1,9,5,7,3,4]
 #%%
 ### 1. Display the array
+
 def display(x):
     return print(x)
 
 display(arr)
 # %%
 ### 2. Add a number at the end
+
 def add_end(x,y):
     return x.append(y)
 add_end(arr, 100)
@@ -15,6 +17,7 @@ add_end(arr, 100)
 display(arr)
 #%%
 ### 3. Add a number at the beginning
+
 def add_beg(arr, num):
     arr.insert(0,num)
 
@@ -22,6 +25,7 @@ add_beg(arr, 30000)
 arr
 # %%
 ### 4. Add a number to somewhere
+
 def add_somewhere(arr,index,num):
     for i, a in enumerate(arr):
         if i == index:
@@ -32,6 +36,7 @@ add_somewhere(arr,4,-999)
 arr
 #%%
 ### 5. Delete number from the index
+
 def delete(arr, index):
     for i, a in enumerate(arr):
         if i == index:
@@ -42,6 +47,7 @@ delete(arr, 2)
 arr        
 #%%
 ### 6.Search the number
+
 def search(arr, num):
     indices = [i for i, x in enumerate(arr) if x == num]
     if indices:
@@ -53,6 +59,7 @@ search(arr, 4)
 search(arr, -100)
 # %%
 ### 7. Get the number from the index
+
 def get(arr, index):
     for i, a in enumerate(arr):
         if i == index:
@@ -62,6 +69,7 @@ def get(arr, index):
 get(arr, 0)
 # %%
 ### 8.Set the number to another, by index
+
 def replace(arr, index, num):
     if index not in range(len(arr)):
         return print("index out of range")
@@ -100,6 +108,7 @@ def reversed(arr):
 reversed(arr)
 # %%
 ### 11. Rotate that arr
+
 def rotate(arr, rot):
     n = len(arr)
     arr[:] = arr[rot:n] + arr[0:rot]
