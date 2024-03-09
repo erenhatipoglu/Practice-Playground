@@ -70,14 +70,14 @@ class God:
 
 # Demonstration
 Odin = God("Allfather", True, True)
-Odin.let_there_be("D:/DataFors_Internship/iris.csv")
+Odin.let_there_be("iris.csv")
 Odin.take_life(20)
 Odin.see_future()
 Odin.doomsday()
 
 # Another God
 Beelzebub = God("Lord of the Flies", True, False)
-Beelzebub.let_there_be("iris.xlsx")
+Beelzebub.let_there_be("mtcars.csv")
 Beelzebub.take_life(25)
 Beelzebub.see_future()
 Beelzebub.doomsday()
