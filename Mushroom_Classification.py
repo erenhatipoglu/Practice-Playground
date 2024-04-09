@@ -12,7 +12,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 import statsmodels.api as sm
 
-mush = pd.read_csv("D:/DataFors_Internship/mushroom/mushrooms.csv")
+mush = pd.read_csv("mushrooms.csv")
 
 mush.head()
 
