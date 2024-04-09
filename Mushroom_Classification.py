@@ -10,8 +10,9 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.ensemble import RandomForestClassifier
 
 from sklearn.metrics import classification_report
+import statsmodels.api as sm
 
-mush = pd.read_csv("mushrooms.csv")
+mush = pd.read_csv("D:/DataFors_Internship/mushroom/mushrooms.csv")
 
 mush.head()
 
@@ -23,7 +24,8 @@ plt.bar("Poisonous", classes["p"])
 plt.show()
 
 
-X = mush.loc[:, ["cap-shape", "cap-color", "ring-number", "ring-type"]]
+X = mush.loc[:, ['cap-shape', 'cap-surface', 'cap-color',
+                  'bruises', 'odor', 'gill-attachment', 'gill-spacing']]
 y = mush.loc[:, "class"]
 
 # Encoding the columns
@@ -85,4 +87,27 @@ for model_name, y_pred in reports:
     report = classification_report(y_test, y_pred)
     print(f"{model_name}:\n{report}")
 
-# Decision Tree works best with 91% accuracy.
+# Decision Trees and Neural Networks work best with 99% accuracy.
+
+### BONUS --> MULTIPLE LINEAR REGRESSION
+
+X = mush[['cap-shape', 'cap-surface', 'cap-color', 'bruises', 'odor', 'gill-attachment', 'gill-spacing']]
+y = mush['class']
+
+label_encoders = {}
+for col in X.columns:
+    label_encoders[col] = LabelEncoder()
+    X[col] = label_encoders[col].fit_transform(X[col])
+
+le_class = LabelEncoder()
+y = le_class.fit_transform(y)
+
+X = sm.add_constant(X)
+
+linear_model = sm.OLS(y, X).fit()
+
+print(linear_model.summary())
+
+# # A linear regression model using seven
+# mushroom characteristics explains approximately 61% of the variability
+# in predicting mushroom "poisonousness"
