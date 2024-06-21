@@ -1,4 +1,4 @@
-x <- sample(6,100,replace=T)
+x <- sample(6,size=100,replace=T)
 table(x)
 
 # Easy, right?
